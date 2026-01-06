@@ -137,7 +137,18 @@ export default function RetailShopAnalyzer() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
               </span>
-              v2.0 powered by Gemini
+              v1.0 powered by Gemini
+            </div>
+            
+            <div className="flex justify-center mb-8">
+              <div className="relative group">
+                <div className="absolute inset-0 bg-indigo-500/30 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <img 
+                  src="/logo.png" 
+                  alt="Causis Logo" 
+                  className="w-32 h-32 relative z-10 rounded-3xl border border-white/10 shadow-2xl transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
             </div>
             
             <h1 className="text-6xl md:text-7xl font-bold tracking-tight bg-gradient-to-b from-white to-white/50 bg-clip-text text-transparent">
@@ -278,8 +289,12 @@ export default function RetailShopAnalyzer() {
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                <Store className="w-5 h-5 text-black" />
+              <div className="w-10 h-10 relative">
+                <img 
+                  src="/logo.png" 
+                  alt="Causis" 
+                  className="w-full h-full object-cover rounded-lg border border-white/10"
+                />
               </div>
               <h1 className="text-xl font-bold tracking-tight">Causis <span className="text-white/40 font-medium">/ Analysis</span></h1>
             </div>

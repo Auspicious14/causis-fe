@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     title: "Causis - Inferring the World from Sight",
     description: "AI that understands how your business functions and recommends improvements.",
     type: "website",
+  },
+  icons: {
+    icon: "/logo.png",
   }
 };
 
