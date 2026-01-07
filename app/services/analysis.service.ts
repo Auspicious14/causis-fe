@@ -1,24 +1,28 @@
-import { AnalysisResult } from '../types/analysis';
+import { AnalysisResult } from "../types/analysis";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+const API_URL =
+  `${process.env.NEXT_PUBLIC_API_URL}/api` || "http://localhost:3000/api";
 
 export class AnalysisService {
-  static async analyzeShopImage(imageFile: File, shopId?: string): Promise<AnalysisResult> {
+  static async analyzeShopImage(
+    imageFile: File,
+    shopId?: string
+  ): Promise<AnalysisResult> {
     const formData = new FormData();
-    formData.append('image', imageFile);
+    formData.append("image", imageFile);
     if (shopId) {
-      formData.append('shopId', shopId);
+      formData.append("shopId", shopId);
     }
 
     try {
       const response = await fetch(`${API_URL}/analysis/analyze`, {
-        method: 'POST',
+        method: "POST",
         body: formData,
       });
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.message || 'Analysis failed');
+        throw new Error(errorData.message || "Analysis failed");
       }
 
       return response.json();
@@ -26,7 +30,7 @@ export class AnalysisService {
       if (error instanceof Error) {
         throw error;
       }
-      throw new Error('An unexpected error occurred during analysis');
+      throw new Error("An unexpected error occurred during analysis");
     }
   }
 }
