@@ -363,12 +363,18 @@ export default function RetailShopAnalyzer() {
                 <div className="md:w-72">
                   <h3 className="text-xs font-bold text-white/30 uppercase tracking-[0.2em] mb-4">Core Strengths</h3>
                   <div className="space-y-3">
-                    {analysis.understanding.strengths.map((strength, idx) => (
-                      <div key={idx} className="flex items-center gap-3 px-4 py-3 bg-white/5 rounded-2xl border border-white/5 text-sm font-medium text-white/70">
-                        <CheckCircle className="w-4 h-4 text-green-400" />
-                        {strength}
+                    {analysis.understanding.strengths.length > 0 ? (
+                      analysis.understanding.strengths.map((strength, idx) => (
+                        <div key={idx} className="flex items-center gap-3 px-4 py-3 bg-white/5 rounded-2xl border border-white/5 text-sm font-medium text-white/70">
+                          <CheckCircle className="w-4 h-4 text-green-400" />
+                          {strength}
+                        </div>
+                      ))
+                    ) : (
+                      <div className="px-4 py-3 bg-white/5 rounded-2xl border border-white/5 text-sm font-medium text-white/30 italic text-center">
+                        No specific core strengths identified in this scan.
                       </div>
-                    ))}
+                    )}
                   </div>
                 </div>
               </div>
@@ -392,22 +398,34 @@ export default function RetailShopAnalyzer() {
                       <h3 className="text-green-400 font-bold mb-4 flex items-center gap-2">
                         <TrendingUp className="w-5 h-5" /> Gains
                       </h3>
-                      <ul className="space-y-3">
-                        {analysis.changes.improvements.map((item, idx) => (
-                          <li key={idx} className="text-sm text-green-100/70 border-b border-white/5 pb-2 last:border-0">{item}</li>
-                        ))}
-                      </ul>
+                      {analysis.changes.improvements.length > 0 ? (
+                        <ul className="space-y-3">
+                          {analysis.changes.improvements.map((item, idx) => (
+                            <li key={idx} className="text-sm text-green-100/70 border-b border-white/5 pb-2 last:border-0">{item}</li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <div className="text-sm text-green-100/30 italic">
+                          No significant gains or improvements detected in this period.
+                        </div>
+                      )}
                     </div>
                     
                     <div className="bg-red-500/5 border border-red-500/10 rounded-[2rem] p-8">
                       <h3 className="text-red-400 font-bold mb-4 flex items-center gap-2">
                         <AlertCircle className="w-5 h-5" /> Regressions
                       </h3>
-                      <ul className="space-y-3">
-                        {analysis.changes.regressions.map((item, idx) => (
-                          <li key={idx} className="text-sm text-red-100/70 border-b border-white/5 pb-2 last:border-0">{item}</li>
-                        ))}
-                      </ul>
+                      {analysis.changes.regressions.length > 0 ? (
+                        <ul className="space-y-3">
+                          {analysis.changes.regressions.map((item, idx) => (
+                            <li key={idx} className="text-sm text-red-100/70 border-b border-white/5 pb-2 last:border-0">{item}</li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <div className="text-sm text-red-100/30 italic">
+                          No regressions or negative trends observed.
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
